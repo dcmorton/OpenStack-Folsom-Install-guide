@@ -104,7 +104,7 @@ keystone service-create --name cinder --type volume --description 'OpenStack Vol
 keystone service-create --name glance --type image --description 'OpenStack Image Service'
 keystone service-create --name keystone --type identity --description 'OpenStack Identity'
 keystone service-create --name ec2 --type ec2 --description 'OpenStack EC2 service'
-keystone service-create --name quantum --type network --description 'OpenStack Networking service'
+#keystone service-create --name quantum --type network --description 'OpenStack Networking service'
 
 create_endpoint () {
   case $1 in
@@ -123,13 +123,14 @@ create_endpoint () {
     ec2)
     keystone endpoint-create --region $KEYSTONE_REGION --service-id $2 --publicurl 'http://'"$EXT_HOST_IP"':8773/services/Cloud' --adminurl 'http://'"$HOST_IP"':8773/services/Admin' --internalurl 'http://'"$HOST_IP"':8773/services/Cloud'
     ;;
-    network)
-    keystone endpoint-create --region $KEYSTONE_REGION --service-id $2 --publicurl 'http://'"$EXT_HOST_IP"':9696/' --adminurl 'http://'"$HOST_IP"':9696/' --internalurl 'http://'"$HOST_IP"':9696/'
-    ;;
+#    network)
+#    keystone endpoint-create --region $KEYSTONE_REGION --service-id $2 --publicurl 'http://'"$EXT_HOST_IP"':9696/' --adminurl 'http://'"$HOST_IP"':9696/' --internalurl 'http://'"$HOST_IP"':9696/'
+#    ;;
   esac
 }
 
-for i in compute volume image object-store identity ec2 network; do
+#for i in compute volume image object-store identity ec2 network; do
+for i in compute volume image object-store identity ec2; do
   id=`mysql -h "$MYSQL_HOST" -u "$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE" -ss -e "SELECT id FROM service WHERE type='"$i"';"` || exit 1
   create_endpoint $i $id
 done
