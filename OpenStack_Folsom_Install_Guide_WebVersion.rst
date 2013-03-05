@@ -61,13 +61,7 @@ Status: stable
 :Network Node: eth0 (100.10.10.52), eth1 (100.20.20.52), eth2 (192.168.100.52)
 :Compute Node: eth0 (100.10.10.53), eth1 (100.20.20.53)
 
-**Note 1:** If you don't have 2 NICs on controller node, you can check other branches for 2 NIC installation.
-
-**Note 2:** Compute and Controller nodes can be merged into one node.
-
-**Note 3:** If you are not interrested in Quantum, you can also use this guide but you must follow the nova section found `here <https://github.com/mseknibilel/OpenStack-Folsom-Install-guide/blob/master/Tricks%26Ideas/install_nova-network.rst>`_ instead of the one written in this guide.
-
-**Note 4:** This is my current network architecture, you can add as many compute node as you wish.
+**Note:** This is my current network architecture within ESXi, you can add as many compute node as you wish.
 
 .. image:: http://i.imgur.com/aJvZ7.jpg
 
@@ -79,7 +73,7 @@ Status: stable
 
 * After you install Ubuntu 12.10 Server 64bits, Go to the sudo mode and don't leave it until the end of this guide::
 
-   sudo su
+   sudo -i
 
 * Update your system::
 
