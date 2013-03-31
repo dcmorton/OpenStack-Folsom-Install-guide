@@ -312,7 +312,7 @@ Status: stable
 
 * Start by installing nova components::
 
-   aptitude install -y nova-api nova-cert novnc nova-consoleauth nova-scheduler nova-novncproxy
+   aptitude install nova-api nova-cert novnc nova-consoleauth nova-scheduler nova-novncproxy
 
 * Prepare a Mysql database for Nova::
 
@@ -453,9 +453,7 @@ Status: stable
 
 * Finally, don't forget to create a volumegroup and name it cinder-volumes::
 
-   dd if=/dev/zero of=cinder-volumes bs=1 count=0 seek=2G
-   losetup /dev/loop2 cinder-volumes
-   fdisk /dev/loop2
+   fdisk /dev/sdb
    #Type in the followings:
    n
    p
@@ -468,10 +466,8 @@ Status: stable
 
 * Proceed to create the physical volume then the volume group::
 
-   pvcreate /dev/loop2
-   vgcreate cinder-volumes /dev/loop2
-
-**Note:** Beware that this volume group gets lost after a system reboot. (Click `Here <https://github.com/mseknibilel/OpenStack-Folsom-Install-guide/blob/master/Tricks%26Ideas/load_volume_group_after_system_reboot.rst>`_ to know how to load it after a reboot) 
+   pvcreate /dev/sdb1
+   vgcreate cinder-volumes /dev/sdb1
 
 * Restart the cinder services::
 
