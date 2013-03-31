@@ -77,9 +77,9 @@ Status: stable
 
 * Update your system::
 
-   apt-get update
-   apt-get upgrade
-   apt-get dist-upgrade
+   aptitude update
+   aptitude upgrade
+   aptitude dist-upgrade
 
 2.2.Networking
 ------------
@@ -105,7 +105,7 @@ Status: stable
 
 * Install MySQL::
 
-   apt-get install mysql-server python-mysqldb
+   aptitude install mysql-server python-mysqldb
 
 * Configure mysql to accept all incoming requests::
 
@@ -114,14 +114,14 @@ Status: stable
 
 * Install RabbitMQ::
 
-   apt-get install rabbitmq-server 
+   aptitude install rabbitmq-server 
 
 2.4. Node synchronization
 ------------------
 
 * Install other services::
 
-   apt-get install ntp
+   aptitude install ntp
 
 * Configure the NTP server to synchronize between your compute nodes and the controller node::
    
@@ -133,7 +133,7 @@ Status: stable
 
 * Install other services::
 
-   apt-get install vlan bridge-utils
+   aptitude install vlan bridge-utils
 
 * Enable IP_Forwarding::
 
@@ -146,7 +146,7 @@ Status: stable
 
 * Start by the keystone packages::
 
-   apt-get install keystone
+   aptitude install keystone
 
 * Create a new MySQL database for keystone::
 
@@ -187,7 +187,7 @@ Status: stable
 
 * To test Keystone, we use a simple curl request::
 
-   apt-get install curl openssl
+   aptitude install curl openssl
    curl http://192.168.100.51:35357/v2.0/endpoints -H 'x-auth-token: ADMIN' | python -m json.tool
 
 2.7. Glance
@@ -195,7 +195,7 @@ Status: stable
 
 * After installing Keystone, we continue with installing image storage service a.k.a Glance::
 
-   apt-get install glance
+   aptitude install glance
 
 * Create a new MySQL database for Glance::
 
@@ -261,7 +261,7 @@ Status: stable
    mkdir images
    cd images
    wget https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img
-   glance image-create --name myFirstImage --is-public true --container-format bare --disk-format qcow2 < cirros-0.3.0-x86_64-disk.img
+   glance image-create --name CirrOS-0.3.1-x86_64 --is-public true --container-format bare --disk-format qcow2 < cirros-0.3.0-x86_64-disk.img
 
 * Now list the images to see what you have just uploaded::
 
@@ -272,7 +272,7 @@ Status: stable
 
 * Install the Quantum server::
 
-   apt-get install quantum-server quantum-plugin-openvswitch
+   aptitude install quantum-server quantum-plugin-openvswitch
 
 * Create a database::
 
@@ -312,7 +312,7 @@ Status: stable
 
 * Start by installing nova components::
 
-   apt-get install -y nova-api nova-cert novnc nova-consoleauth nova-scheduler nova-novncproxy
+   aptitude install -y nova-api nova-cert novnc nova-consoleauth nova-scheduler nova-novncproxy
 
 * Prepare a Mysql database for Nova::
 
@@ -402,7 +402,7 @@ Status: stable
 
 * Install the required packages::
 
-   apt-get install cinder-api cinder-scheduler cinder-volume iscsitarget open-iscsi iscsitarget-dkms
+   aptitude install cinder-api cinder-scheduler cinder-volume iscsitarget open-iscsi iscsitarget-dkms
 
 * Configure the iscsi services::
 
@@ -483,7 +483,7 @@ Status: stable
 
 * To install horizon, proceed like this ::
 
-   apt-get install openstack-dashboard memcached
+   aptitude install openstack-dashboard memcached
 
 
 * If you don't like the OpenStack ubuntu theme, you can remove the package to disable it::
@@ -506,13 +506,13 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Update your system::
 
-   apt-get update
-   apt-get upgrade
-   apt-get dist-upgrade
+   aptitude update
+   aptitude upgrade
+   aptitude dist-upgrade
 
 * Install ntp service::
 
-   apt-get install ntp
+   aptitude install ntp
 
 * Configure the NTP server to follow the controller node::
    
@@ -521,7 +521,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install other services::
 
-   apt-get install vlan bridge-utils
+   aptitude install vlan bridge-utils
 
 * Enable IP_Forwarding::
 
@@ -561,7 +561,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install the openVSwitch::
 
-   apt-get install -y openvswitch-switch openvswitch-datapath-dkms
+   aptitude install -y openvswitch-switch openvswitch-datapath-dkms
 
 * Create the bridges::
 
@@ -581,7 +581,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install the Quantum openvswitch agent, l3 agent and dhcp agent::
 
-   apt-get -y install quantum-plugin-openvswitch-agent quantum-dhcp-agent quantum-l3-agent
+   aptitude -y install quantum-plugin-openvswitch-agent quantum-dhcp-agent quantum-l3-agent
 
 * Edit /etc/quantum/api-paste.ini::
 
@@ -634,13 +634,13 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Update your system::
 
-   apt-get update
-   apt-get upgrade
-   apt-get dist-upgrade
+   aptitude update
+   aptitude upgrade
+   aptitude dist-upgrade
 
 * Install ntp service::
 
-   apt-get install ntp
+   aptitude install ntp
 
 * Configure the NTP server to follow the controller node::
    
@@ -649,7 +649,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install other services::
 
-   apt-get install vlan bridge-utils
+   aptitude install vlan bridge-utils
 
 * Enable IP_Forwarding::
 
@@ -679,12 +679,12 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * make sure that your hardware enables virtualization::
 
-   apt-get install cpu-checker
+   aptitude install cpu-checker
    kvm-ok
 
 * Normally you would get a good response. Now, move to install kvm and configure it::
 
-   apt-get install -y kvm libvirt-bin pm-utils
+   aptitude install -y kvm libvirt-bin pm-utils
 
 * Edit the cgroup_device_acl array in the /etc/libvirt/qemu.conf file to::
 
@@ -723,7 +723,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install the openVSwitch::
 
-   apt-get install -y openvswitch-switch openvswitch-datapath-dkms
+   aptitude install -y openvswitch-switch openvswitch-datapath-dkms
 
 * Create the bridges::
 
@@ -739,7 +739,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install the Quantum openvswitch agent::
 
-   apt-get -y install quantum-plugin-openvswitch-agent
+   aptitude -y install quantum-plugin-openvswitch-agent
 
 * Edit the OVS plugin configuration file /etc/quantum/plugins/openvswitch/ovs_quantum_plugin.ini with:: 
 
@@ -766,7 +766,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install nova's required components for the compute node::
 
-   apt-get install nova-compute-kvm
+   aptitude install nova-compute-kvm
 
 * Now modify authtoken section in the /etc/nova/api-paste.ini file to this::
 
