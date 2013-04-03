@@ -63,8 +63,6 @@ Status: stable
 
 **Note:** This is my current network architecture within ESXi, you can add as many compute node as you wish.
 
-.. image:: http://i.imgur.com/aJvZ7.jpg
-
 2. Controller node
 ===============
 
