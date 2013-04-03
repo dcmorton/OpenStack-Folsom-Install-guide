@@ -555,7 +555,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install the openVSwitch::
 
-   aptitude install -y openvswitch-switch openvswitch-datapath-dkms
+   aptitude install openvswitch-switch openvswitch-datapath-dkms
 
 * Create the bridges::
 
@@ -575,7 +575,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install the Quantum openvswitch agent, l3 agent and dhcp agent::
 
-   aptitude -y install quantum-plugin-openvswitch-agent quantum-dhcp-agent quantum-l3-agent
+   aptitude install quantum-plugin-openvswitch-agent quantum-dhcp-agent quantum-l3-agent
 
 * Edit /etc/quantum/api-paste.ini::
 
@@ -678,7 +678,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Normally you would get a good response. Now, move to install kvm and configure it::
 
-   aptitude install -y kvm libvirt-bin pm-utils
+   aptitude install kvm libvirt-bin pm-utils
 
 * Edit the cgroup_device_acl array in the /etc/libvirt/qemu.conf file to::
 
@@ -717,7 +717,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install the openVSwitch::
 
-   aptitude install -y openvswitch-switch openvswitch-datapath-dkms
+   aptitude install openvswitch-switch openvswitch-datapath-dkms
 
 * Create the bridges::
 
@@ -733,7 +733,7 @@ You can now access your OpenStack **192.168.100.51/horizon** with credentials **
 
 * Install the Quantum openvswitch agent::
 
-   aptitude -y install quantum-plugin-openvswitch-agent
+   aptitude install quantum-plugin-openvswitch-agent
 
 * Edit the OVS plugin configuration file /etc/quantum/plugins/openvswitch/ovs_quantum_plugin.ini with:: 
 
